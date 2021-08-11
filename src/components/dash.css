@@ -1,0 +1,39 @@
+.alldiv {
+    text-align: center;
+}
+
+.textdiv {
+    margin-top: 20px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.btn1 {
+    margin-bottom: 20px;
+    width: 145px;
+    border-radius: 30px;
+    box-shadow: 0 2px #999;
+}
+
+.btn2 {
+    border-radius: 30px;
+    box-shadow: 0 2px #999;
+}
+
+.btn3 {
+    margin-top: 20px;
+    width: 150px;
+    border-radius: 15px;
+    box-shadow: 0 2px #999;
+}
+
+.btn {
+    background-color: DodgerBlue;
+    border: none;
+    color: white;
+    padding: 12px 16px;
+    font-size: 16px;
+    cursor: pointer;
+}

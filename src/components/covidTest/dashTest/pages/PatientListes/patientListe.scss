@@ -1,0 +1,33 @@
+.patientpage {
+    margin-top: 2%;
+    .boxsearch {
+        height: 10vh;
+        //margin-left: 5px;
+        //background-color: red;
+        .infoPatient {
+            height: 53vh;
+            //background-color: red;
+            overflow: hidden;
+            overflow-y: scroll;
+        }
+        nav ul {
+            height: 300px;
+            width: 100%;
+            padding-left: 0;
+        }
+        nav ul {
+            overflow: hidden;
+            overflow-y: scroll;
+            li {
+                margin-top: 2px;
+            }
+            li:hover {
+                background-color: #1a83ff;
+                height: 8%;
+                cursor: pointer;
+                width: 70%;
+                border-radius: 7%;
+            }
+        }
+    }
+}
