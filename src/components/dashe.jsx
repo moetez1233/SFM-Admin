@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useEffect, useState } from "react";
 import img1 from "../image1.jpg";
 import { Link, Router } from "react-router-dom";
 
@@ -8,10 +8,26 @@ import {
     Button
 } from "react-bootstrap";
 import { useHistory } from "react-router-dom"
-
+import axios from 'axios'
 export default function Dashe() {
     const history = useHistory()
+    const [employees, setEmployees] = useState([])
 
+    useEffect(async() => {
+        const getEmployeesListe = async() => {
+            try {
+                const result = await axios.get(`http://localhost:3001/employees`).then(result => {
+                    console.log(result.data)
+                    setEmployees(result.data)
+                })
+
+            } catch (err) {
+                console.log(err)
+            }
+        }
+        getEmployeesListe()
+    })
+    console.log(employees)
     return ( <
         >
         <
