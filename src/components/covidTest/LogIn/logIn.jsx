@@ -29,22 +29,19 @@ export default function Login() {
         onClick = { HomePage } > { ' ' } <
         ArrowBackIosIcon > < /ArrowBackIosIcon>{' '} <
         span style = {
-            { fontSize: '1.5' }
-        } > Home < /span>{' '} < /
-        Button > { ' ' } <
+            { fontSize: '1.5' } } > Home < /span>{' '} <
+        /Button>{' '} <
         /div>{' '} <
         img src = { imgLog }
         width = '100%' / >
         <
-        /div>
-
-        <
+        /div>{' '} <
         Form.Group className = 'mb-3'
         controlId = 'formBasicEmail' >
         <
         Form.Label > { ' ' } <
-        h6 > Email address < /h6>{' '} < /
-        Form.Label > { ' ' } <
+        h6 > Email address < /h6>{' '} <
+        /Form.Label>{' '} <
         Form.Control type = 'email'
         placeholder = 'Enter email'
         value = { dataAdmin['email'] }
@@ -55,16 +52,14 @@ export default function Login() {
                 email: e.target.value
             })
         }
-        />{' '} < /
-        Form.Group >
-
-        <
+        />{' '} <
+        /Form.Group>{' '} <
         Form.Group className = 'mb-3'
         controlId = 'formBasicPassword' >
         <
         Form.Label > { ' ' } <
-        h6 > Password < /h6>{' '} < /
-        Form.Label > { ' ' } <
+        h6 > Password < /h6>{' '} <
+        /Form.Label>{' '} <
         Form.Control type = 'password'
         placeholder = 'Password'
         value = { dataAdmin['password'] }
@@ -85,8 +80,8 @@ export default function Login() {
         }
         onClick = { onSubmit } >
         Submit { ' ' } <
-        /Button>{' '} < /
-        Form.Group > <
+        /Button>{' '} <
+        /Form.Group>{' '} <
         /div>
     )
 }

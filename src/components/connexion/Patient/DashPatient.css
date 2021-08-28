@@ -1,0 +1,55 @@
+.Header__dash{
+    height: 180px;
+    background-color: cornflowerblue;
+}
+.title{
+    padding-top: 3%;
+}
+.Body__Dash{
+    margin-top: -60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.First__Butt{
+    margin-left: 3px;
+    margin-bottom: 3px;
+    
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Second__Butt{
+    margin-left: 3px;
+   
+}
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 150px;
+    
+    
+  }
+  .First__Butt :hover {
+    background-color: #A93226   
+
+  }
+  .Second__Butt :hover{
+      background-color: #D6EAF8;
+  }
+
+  .button3 {
+      background-color: #EC7063; border-radius: 8px;
+      font-size: 1.9em;
+}
+  .button2 {background-color: #EAFAF1;color: black;font-size: 1.9em;border-radius: 8px;} 

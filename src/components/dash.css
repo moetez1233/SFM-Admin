@@ -2,6 +2,11 @@
     text-align: center;
 }
 
+img {
+    object-fit: cover;
+ 
+}
+
 .textdiv {
     margin-top: 20px;
 }

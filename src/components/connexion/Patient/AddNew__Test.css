@@ -1,0 +1,22 @@
+.Header__Test{
+    height: 180px;
+    background-color: #F4F6F6;
+}
+
+.Body__TestSwith{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.footer__Test{
+    margin-top: 30px;
+    text-align: center;
+}
+.btn__save{
+    background-color: green;
+    border-color: green;
+    border-radius: 2%;
+}
+.btn__save:hover{
+background-color: #1E8449;
+}
