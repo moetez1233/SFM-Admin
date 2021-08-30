@@ -17,7 +17,7 @@ export default function Dashe() {
     const getEmployeesListe = async () => {
       try {
         const result = await axios
-          .get(`http://localhost:3001/employees`)
+          .get(`http://localhost:3000/api/employe`)
           .then((result) => {
             //console.log(result.data);
             setEmployees(result.data);
@@ -28,7 +28,7 @@ export default function Dashe() {
     };
     getEmployeesListe();
   });
- // console.log(employees);
+  //console.log(employees);
   return (
     <>
       <div className="alldiv">

@@ -6,6 +6,10 @@ import AccountCircleSharpIcon from '@material-ui/icons/AccountCircleSharp';
 import LockSharpIcon from '@material-ui/icons/LockSharp';
 import AssessmentOutlinedIcon from '@material-ui/icons/AssessmentOutlined';
 import { useHistory } from 'react-router';
+import {
+    //Card,
+    Button,
+  } from "react-bootstrap";
 export default function DashPatient() {
     const history =useHistory()
     return (
@@ -68,6 +72,12 @@ export default function DashPatient() {
                 <div>
                    of coronavirus
                 </div>
+                <Button
+                className="btn1"
+                onClick={() => history.push("")}
+              >
+                Home
+              </Button>
 
 
 

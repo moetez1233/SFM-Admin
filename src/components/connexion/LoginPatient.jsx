@@ -17,10 +17,10 @@ export default function LoginPatient() {
     history.push("/");
   };
   const onSubmit = async () => {
-    //console.log(dataAdmin);
+    console.log(dataAdmin);
     
    
-          await axios.post(`https://localhost:8000/login`,dataAdmin).then((result) =>{
+          await axios.post(`http://localhost:8000/api/login_check`,dataAdmin).then((result) =>{
             const alertLogSuss= <Alert variant="filled" severity="success">login Success</Alert>
             setresLogin(alertLogSuss)
             setTimeout(() => {
@@ -30,8 +30,8 @@ export default function LoginPatient() {
         
           }
             ).catch(err =>{
-             // const alertLogdenie = <Alert variant="filled" severity="error">{err.response.data}</Alert>
-              const alertLogdenie = <Alert variant="filled" severity="error">error</Alert>
+             const alertLogdenie = <Alert variant="filled" severity="error">{err.response.data}</Alert>
+             // const alertLogdenie = <Alert variant="filled" severity="error">error</Alert>
 
               setresLogin(alertLogdenie)
               //console.log(err.response.data);
@@ -80,11 +80,11 @@ export default function LoginPatient() {
         <Form.Control
           type="password"
           placeholder="Password"
-          value={dataAdmin["password"]}
+          value={dataAdmin["identifier"]}
           onChange={(e) =>
             setdataAdmin({
               ...dataAdmin,
-              password: e.target.value,
+              identifier: e.target.value,
             })
           }
         />

@@ -14,6 +14,7 @@ import LoginPatient from "./components/connexion/LoginPatient";
 import PrintAttest from "./components/connexion/printAttest";
 import DashPatient from "./components/connexion/Patient/DashPatient"
 import AddNewTest from './components/connexion/Patient/AddNewTest'
+import Travile from './components/connexion/Patient/Travile'
 import { Stepper, StepLabel, Step } from "@material-ui/core";
 
 function App() {
@@ -80,6 +81,9 @@ function App() {
           <Route path="/addNewTest">
             
             <AddNewTest> </AddNewTest>
+          </Route>
+          <Route path="/travile">
+             <Travile></Travile>
           </Route>
         </Switch>
       </Router>

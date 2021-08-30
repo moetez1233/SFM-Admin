@@ -1,8 +1,9 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef,useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import NavSide from "../../components/NavSide";
-
+import TextField from '@material-ui/core/TextField';
+import Autocomplete from '@material-ui/lab/Autocomplete';
 import "./patientListe.scss";
 import Grid from "@material-ui/core/Grid";
 import { Form, Button, Card } from "react-bootstrap";
@@ -13,6 +14,7 @@ import Typography from "@material-ui/core/Typography";
 import UpdateIcon from "@material-ui/icons/Update";
 import EditLocationIcon from "@material-ui/icons/EditLocation";
 import EditIcon from "@material-ui/icons/Edit";
+import axios from "axios";
 export default function PatientListes() {
   const [clicked, setClicked] = useState(false);
   const [clickedPatient, setClickedPatient] = useState([]);
@@ -20,200 +22,31 @@ export default function PatientListes() {
   const [text, setText] = useState("");
   const [suggestions, setsuggestion] = useState([]);
   const [serchAuto, setserchAuto] = useState(false);
-
-  const [patiens, setpatiens] = useState([
-    {
-      id: "uuidv1",
-      Centredetest: "ariana ",
-      Cin: "09939442",
-      ContactNumber: "+21655611346",
-      Country: "Tunisia",
-      Firstname: "Moetez",
-      email: "maddourimoetez@enetcom.u-sfax.tn",
-      lastname: "maddouri",
-      password: "Q4@h5w6389r!JJ3",
-      time: "Tue Aug 10 2021 21: 00: 00 GMT + 0200(heure d’ été d’ Europe centrale)",
-      ville: "Ariana",
-    },
-    {
-      id: "uuidv2",
-      Centredetest: "ariana ",
-      Cin: "09939442",
-      ContactNumber: "+21655611346",
-      Country: "Tunisia",
-      Firstname: "Ali",
-      email: "maddouriAli@enetcom.u-sfax.tn",
-      lastname: "aaaa",
-      password: "Q4@h5w6389r!JJ3",
-      time: "Tue Aug 10 2021 21: 00: 00 GMT + 0200(heure d’ été d’ Europe centrale)",
-      ville: "Ariana",
-    },
-    {
-      id: "uuidv3",
-      Centredetest: "ariana ",
-      Cin: "09939442",
-      ContactNumber: "+21655611346",
-      Country: "Tunisia",
-      Firstname: "Mohamed",
-      email: "maddouriMohamed@enetcom.u-sfax.tn",
-      lastname: "a12",
-      password: "Q4@h5w6389r!JJ3",
-      time: "Tue Aug 10 2021 21: 00: 00 GMT + 0200(heure d’ été d’ Europe centrale)",
-      ville: "Ariana",
-    },
-    {
-      id: "uuidv4",
-      Centredetest: "ariana ",
-      Cin: "09939442",
-      ContactNumber: "+21655611346",
-      Country: "Tunisia",
-      Firstname: "Morad",
-      email: "maddouriMorad@enetcom.u-sfax.tn",
-      lastname: "aaaa",
-      password: "Q4@h5w6389r!JJ3",
-      time: "Tue Aug 10 2021 21: 00: 00 GMT + 0200(heure d’ été d’ Europe centrale)",
-      ville: "Ariana",
-    },
-    {
-      id: "uuidv5",
-      Centredetest: "ariana ",
-      Cin: "09939442",
-      ContactNumber: "+21655611346",
-      Country: "Tunisia",
-      Firstname: "Jhon",
-      email: "maddourimoetez@enetcom.u-sfax.tn",
-      lastname: "maddouri",
-      password: "Q4@h5w6389r!JJ3",
-      time: "Tue Aug 10 2021 21: 00: 00 GMT + 0200(heure d’ été d’ Europe centrale)",
-      ville: "Ariana",
-    },
-    {
-      id: "uuidv6",
-      Centredetest: "ariana ",
-      Cin: "09939442",
-      ContactNumber: "+21655611346",
-      Country: "Tunisia",
-      Firstname: "Patient c",
-      email: "maddourimoetez@enetcom.u-sfax.tn",
-      lastname: "maddouri",
-      password: "Q4@h5w6389r!JJ3",
-      time: "Tue Aug 10 2021 21: 00: 00 GMT + 0200(heure d’ été d’ Europe centrale)",
-      ville: "Ariana",
-    },
-    {
-      id: "uuidv7",
-      Centredetest: "ariana ",
-      Cin: "09939442",
-      ContactNumber: "+21655611346",
-      Country: "Tunisia",
-      Firstname: "Patient D",
-      email: "maddourimoetez@enetcom.u-sfax.tn",
-      lastname: "maddouri",
-      password: "Q4@h5w6389r!JJ3",
-      time: "Tue Aug 10 2021 21: 00: 00 GMT + 0200(heure d’ été d’ Europe centrale)",
-      ville: "Ariana",
-    },
-    {
-      id: "uuidv8",
-      Centredetest: "ariana ",
-      Cin: "09939442",
-      ContactNumber: "+21655611346",
-      Country: "Tunisia",
-      Firstname: "Patient X",
-      email: "maddourimoetez@enetcom.u-sfax.tn",
-      lastname: "maddouri",
-      password: "Q4@h5w6389r!JJ3",
-      time: "Tue Aug 10 2021 21: 00: 00 GMT + 0200(heure d’ été d’ Europe centrale)",
-      ville: "Ariana",
-    },
-    {
-      id: "uuidv9",
-      Centredetest: "ariana ",
-      Cin: "09939442",
-      ContactNumber: "+21655611346",
-      Country: "Tunisia",
-      Firstname: "Moetez",
-      email: "maddourimoetez@enetcom.u-sfax.tn",
-      lastname: "maddouri",
-      password: "Q4@h5w6389r!JJ3",
-      time: "Tue Aug 10 2021 21: 00: 00 GMT + 0200(heure d’ été d’ Europe centrale)",
-      ville: "Ariana",
-    },
-    {
-      id: "uuidv10",
-      Centredetest: "ariana ",
-      Cin: "09939442",
-      ContactNumber: "+21655611346",
-      Country: "Tunisia",
-      Firstname: "Moetez",
-      email: "maddourimoetez@enetcom.u-sfax.tn",
-      lastname: "maddouri",
-      password: "Q4@h5w6389r!JJ3",
-      time: "Tue Aug 10 2021 21: 00: 00 GMT + 0200(heure d’ été d’ Europe centrale)",
-      ville: "Ariana",
-    },
-    {
-      id: "uuidv11",
-      Centredetest: "ariana ",
-      Cin: "09939442",
-      ContactNumber: "+21655611346",
-      Country: "Tunisia",
-      Firstname: "Moetez",
-      email: "maddourimoetez@enetcom.u-sfax.tn",
-      lastname: "maddouri",
-      password: "Q4@h5w6389r!JJ3",
-      time: "Tue Aug 10 2021 21: 00: 00 GMT + 0200(heure d’ été d’ Europe centrale)",
-      ville: "Ariana",
-    },
-    {
-      id: "uuidv12",
-      Centredetest: "ariana ",
-      Cin: "09939442",
-      ContactNumber: "+21655611346",
-      Country: "Tunisia",
-      Firstname: "Moetez",
-      email: "maddourimoetez@enetcom.u-sfax.tn",
-      lastname: "maddouri",
-      password: "Q4@h5w6389r!JJ3",
-      time: "Tue Aug 10 2021 21: 00: 00 GMT + 0200(heure d’ été d’ Europe centrale)",
-      ville: "Ariana",
-    },
-    {
-      id: "uuidv13",
-      Centredetest: "ariana ",
-      Cin: "09939442",
-      ContactNumber: "+21655611346",
-      Country: "Tunisia",
-      Firstname: "Moetez",
-      email: "maddourimoetez@enetcom.u-sfax.tn",
-      lastname: "maddouri",
-      password: "Q4@h5w6389r!JJ3",
-      time: "Tue Aug 10 2021 21: 00: 00 GMT + 0200(heure d’ été d’ Europe centrale)",
-      ville: "Ariana",
-    },
-    {
-      id: "uuidv14",
-      Centredetest: "ariana ",
-      Cin: "09939442",
-      ContactNumber: "+21655611346",
-      Country: "Tunisia",
-      Firstname: "Moetez",
-      email: "maddourimoetez@enetcom.u-sfax.tn",
-      lastname: "maddouri",
-      password: "Q4@h5w6389r!JJ3",
-      time: "Tue Aug 10 2021 21: 00: 00 GMT + 0200(heure d’ été d’ Europe centrale)",
-      ville: "Ariana",
-    },
-  ]);
+  const [ListePast, setListePast] = useState();
+  const [patiens, setpatiens] = useState([]);
+ 
   const location = useLocation();
   //console.log(location.sidebar)
   const inputEl = useRef(null);
+  useEffect(async () => {
+    const getEmployeesListe = async () => {
+      try {
+        const result = await axios.get(`http://localhost:8000/api/pati`)
+        console.log(result.data)
+        setpatiens(result.data)
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    getEmployeesListe()
+  },{})
+  console.log("liste patient : ",patiens);
   const onChangeHandle = (text) => {
     let matches = [];
     if (text.length > 0) {
       matches = patiens.filter((patien) => {
         const Regex = new RegExp(`${text}`, "gi");
-        return patien.Firstname.match(Regex);
+        return patien.lastname.match(Regex);
       });
     }
     console.log(matches);
@@ -226,25 +59,23 @@ export default function PatientListes() {
     try {
       const pa = patiens.find((m) => m.id === i);
       setClickedPatient(pa);
-      setText(pa.Firstname);
+      setText(pa.lastname);
       setClicked(true);
     } catch {}
   }
 
-  function autoclicked() {
-    // alert(inputEl.current.value)
-    alert("hello");
-  }
 
   return (
     <div>
       <NavSide> </NavSide>
       <div className="patientpage">
+        
         <Grid container spacing={3}>
           <Grid item xs={3}>
             <div> </div>
           </Grid>
           <Grid item xs={7}>
+            
             
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>
@@ -258,6 +89,8 @@ export default function PatientListes() {
                 onChange={(e) => onChangeHandle(e.target.value)}
               />
             </Form.Group>
+              
+       
           </Grid>
         </Grid>
         <Grid container spacing={3}>
@@ -275,7 +108,9 @@ export default function PatientListes() {
                     
                     <nav>
                       
-                      {!serchAuto ? (
+                   
+                        
+ {!serchAuto ? (
                         <ul>
                           {patiens.map((patien, i) => (
                             <div
@@ -283,7 +118,7 @@ export default function PatientListes() {
                               onClick={() => patientclicked(patien.id)}
                             >
                               
-                              <li> {patien.Firstname} </li>
+                              <li> {patien.lastname} </li>
                             </div>
                           ))}
                         </ul>
@@ -295,11 +130,13 @@ export default function PatientListes() {
                               onClick={() => patientclicked(sugges.id)}
                             >
                               
-                              <li> {sugges.Firstname} </li>
+                              <li> {sugges.lastname} </li>
                             </div>
                           ))}
                         </ul>
                       )}
+                     
+                      
                     </nav>
                   </Card.Body>
                 </Card>
@@ -320,7 +157,7 @@ export default function PatientListes() {
                           </Grid>
                           <Grid item xs={7}>
                             
-                            {clickedPatient.Firstname} {clickedPatient.lastname}
+                            {clickedPatient.firstname} {clickedPatient.lastname}
                           </Grid>
                         </Grid>
                         <Grid container spacing={3}>
@@ -344,7 +181,7 @@ export default function PatientListes() {
                           </Grid>
                           <Grid item xs={7}>
                             
-                            {clickedPatient.ContactNumber}
+                            {clickedPatient.gsm}
                           </Grid>
                         </Grid>
                         <Grid container spacing={3}>
@@ -356,7 +193,7 @@ export default function PatientListes() {
                           </Grid>
                           <Grid item xs={7}>
                             
-                            {clickedPatient.Country}
+                            {clickedPatient.nationality}
                           </Grid>
                         </Grid>
                         <Grid container spacing={3}>
@@ -368,7 +205,7 @@ export default function PatientListes() {
                           </Grid>
                           <Grid item xs={7}>
                             
-                            {clickedPatient.ville}
+                            {clickedPatient.address}
                           </Grid>
                         </Grid>
                         <Grid container spacing={3}>
@@ -380,7 +217,7 @@ export default function PatientListes() {
                           </Grid>
                           <Grid item xs={7}>
                             
-                            {clickedPatient.Centredetest}
+                            {clickedPatient.address}
                           </Grid>
                           <Grid item xs={2}>
                             <EditIcon> </EditIcon>
@@ -390,17 +227,14 @@ export default function PatientListes() {
                           <Grid item xs={3}>
                             <div>
                               
-                              <h6> temp de RDV: </h6>
+                              <h6> Age </h6>
                             </div>
                           </Grid>
                           <Grid item xs={7}>
                             
-                            {clickedPatient.time}
+                            {clickedPatient.age}
                           </Grid>
-                          <Grid item xs={2}>
-                            
-                            <UpdateIcon> </UpdateIcon>
-                          </Grid>
+                          
                         </Grid>
                       </div>
                     ) : (

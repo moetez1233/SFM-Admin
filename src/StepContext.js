@@ -27,8 +27,15 @@ const StepContext = () => {
         //userData.time = selectedDate._d
         setfinalData(finalData => [...finalData, userData])
         console.log(userData);
-        axios.post('https://localhost:8000/api/patients', userData)
-             .then(res => console.log(res.data));
+        
+        axios.post('http://localhost:8000/api/patients', userData)
+             .then(res =>{
+                console.log(res.data)
+                setStep(4)
+                setTimeout(() => {
+                    history.push("/loginPatient")
+                }, 3000);
+             } );
            
 
         /* ===============================================================  crud =========================== */
@@ -56,10 +63,7 @@ const StepContext = () => {
              */
         /* =============================== end Post ======================= */
         /* =============================================================== end crud =========================== */
-        setStep(4)
-        setTimeout(() => {
-            history.push("/loginPatient")
-        }, 3000);
+  
       
 
         //setUserData('');

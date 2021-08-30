@@ -7,9 +7,11 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from '@material-ui/core/Button';
 import AddCircleOutlineRoundedIcon from '@material-ui/icons/AddCircleOutlineRounded';
-
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import { useHistory } from 'react-router';
 
 export default function AddNewTest() {
+  const history =useHistory()
     const [state, setState] = React.useState({
         Fever: false,
         cough: false,
@@ -202,6 +204,13 @@ export default function AddNewTest() {
          <button class="btn__save" onClick={SaveAdd}>
                         <div><AddCircleOutlineRoundedIcon></AddCircleOutlineRoundedIcon> <span>Save Test</span> </div>
          </button>
+         <div>
+         <button class="btn__Retour" onClick={() => history.push("dashPatiente")}>
+                        <div><ArrowBackIosIcon></ArrowBackIosIcon> <span>Retour</span> </div>
+         </button>
+
+         </div>
+        
 </div>
            
               
