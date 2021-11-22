@@ -1,0 +1,31 @@
+.LoginTest {
+    //border: 0.5px solid;
+    padding: 16px;
+    box-shadow: 2px 7px 17px -2px rgba(0, 0, 0, 0.9);
+    -webkit-box-shadow: 2px 7px 17px -2px rgba(0, 0, 0, 0.9);
+    -moz-box-shadow: 2px 7px 17px -2px rgba(0, 0, 0, 0.9);
+ 
+    height: 150%;
+    margin: 5% 33%;
+color: red;
+ 
+    img {
+        border-radius: 50%;
+    }
+}
+@media screen and (min-width: 600px) {
+  .LoginTest{
+  
+  width: 300%;
+    color: blue;
+  }
+}
+
+/* If screen size is 600px wide, or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 600px) {
+  .LoginTest {
+    font-size: 30px;
+    color: yellow;
+    width: 1000px;
+  }
+}

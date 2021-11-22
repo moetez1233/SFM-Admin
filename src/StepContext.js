@@ -27,16 +27,17 @@ const StepContext = () => {
         //userData.time = selectedDate._d
         setfinalData(finalData => [...finalData, userData])
         console.log(userData);
-        
-        axios.post('http://localhost:8000/api/patients', userData)
+        setStep(4)
+
+        /*axios.post('http://localhost:8000/api/patients', userData)
              .then(res =>{
                 console.log(res.data)
                 setStep(4)
                 setTimeout(() => {
                     history.push("/loginPatient")
                 }, 3000);
-             } );
-           
+             } );*/
+
 
         /* ===============================================================  crud =========================== */
         /* ========================= Get ============================== */
@@ -63,8 +64,8 @@ const StepContext = () => {
              */
         /* =============================== end Post ======================= */
         /* =============================================================== end crud =========================== */
-  
-      
+
+
 
         //setUserData('');
 
@@ -74,23 +75,23 @@ const StepContext = () => {
     return ( <
         >
         <
-        multistepContext.Provider value = {
-            {
-                currentStep,
-                setStep,
-                userData,
-                setUserData,
-                finalData,
-                setfinalData,
-                submitData,
-                selectedDate,
-                handleDateChange
-            }
-        } >
-        <
+        multistepContext.Provider value={
+                {
+                    currentStep,
+                    setStep,
+                    userData,
+                    setUserData,
+                    finalData,
+                    setfinalData,
+                    submitData,
+                    selectedDate,
+                    handleDateChange
+                }
+            } >
+            <
         FormStep > < /FormStep> < /
         multistepContext.Provider > <
         />
-    )
+                )
 }
-export default StepContext;
+                export default StepContext;

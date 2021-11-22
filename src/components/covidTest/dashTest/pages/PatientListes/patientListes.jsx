@@ -23,12 +23,88 @@ export default function PatientListes() {
   const [suggestions, setsuggestion] = useState([]);
   const [serchAuto, setserchAuto] = useState(false);
   const [ListePast, setListePast] = useState();
-  const [patiens, setpatiens] = useState([]);
+  const [patiens, setpatiens] = useState([
+    {
+      "id":1,
+      "firstname" : "Mohamed",
+      "lastname" : "Moetez",
+      "birthdate" : "2021-02-17T02:11:22+00:00",
+      "nationality" : "tunisian",
+      "email" : "mohamed.yassine@gmail.com",
+      "address" : "gabes - tunisie",
+      "age" : 23,
+      "gender" : "male",
+      "identifier" : "11111111",
+      "gsm" : "22222222"
+  },
+  {
+    "id":2,
+    "firstname" : "Mohamed",
+    "lastname" : "Yassine",
+    "birthdate" : "2021-02-17T02:11:22+00:00",
+    "nationality" : "tunisian",
+    "email" : "mohamed.yassine@gmail.com",
+    "address" : "gabes - tunisie",
+    "age" : 23,
+    "gender" : "male",
+    "identifier" : "11111111",
+    "gsm" : "22222222"
+},{
+  "id":3,
+  "firstname" : "Mohamed",
+  "lastname" : "Brahim",
+  "birthdate" : "2021-02-17T02:11:22+00:00",
+  "nationality" : "tunisian",
+  "email" : "mohamed.yassine@gmail.com",
+  "address" : "gabes - tunisie",
+  "age" : 23,
+  "gender" : "male",
+  "identifier" : "11111111",
+  "gsm" : "22222222"
+},{
+  "id":4,
+  "firstname" : "Mohamed",
+  "lastname" : "Ala",
+  "birthdate" : "2021-02-17T02:11:22+00:00",
+  "nationality" : "tunisian",
+  "email" : "mohamed.yassine@gmail.com",
+  "address" : "gabes - tunisie",
+  "age" : 23,
+  "gender" : "male",
+  "identifier" : "11111111",
+  "gsm" : "22222222"
+},{
+  "id":5,
+  "firstname" : "Mohamed",
+  "lastname" : "haythem",
+  "birthdate" : "2021-02-17T02:11:22+00:00",
+  "nationality" : "tunisian",
+  "email" : "mohamed.yassine@gmail.com",
+  "address" : "gabes - tunisie",
+  "age" : 23,
+  "gender" : "male",
+  "identifier" : "11111111",
+  "gsm" : "22222222"
+},{
+  "id":6,
+  "firstname" : "Mohamed",
+  "lastname" : "Wael",
+  "birthdate" : "2021-02-17T02:11:22+00:00",
+  "nationality" : "tunisian",
+  "email" : "mohamed.yassine@gmail.com",
+  "address" : "gabes - tunisie",
+  "age" : 23,
+  "gender" : "male",
+  "identifier" : "11111111",
+  "gsm" : "22222222"
+},
+
+  ]);
  
   const location = useLocation();
   //console.log(location.sidebar)
   const inputEl = useRef(null);
-  useEffect(async () => {
+  /*useEffect(async () => {
     const getEmployeesListe = async () => {
       try {
         const result = await axios.get(`http://localhost:8000/api/pati`)
@@ -39,7 +115,7 @@ export default function PatientListes() {
       }
     }
     getEmployeesListe()
-  },{})
+  },{})*/
   console.log("liste patient : ",patiens);
   const onChangeHandle = (text) => {
     let matches = [];

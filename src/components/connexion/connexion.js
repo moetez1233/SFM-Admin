@@ -16,7 +16,7 @@ export default function Connexion() {
   return (
     <>
       <div className="alldiv">
-        <img src={img1} width="1000" height="300" />
+        <img src={img1} width="30%"/>
         <div className="textdiv">
           <h3> Making an appointment for the covide - 19 diagnostic test </h3>
           <ul>

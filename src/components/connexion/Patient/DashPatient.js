@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import './DashPatient.css'
 import AddIcon from '@material-ui/icons/Add';
 import AddCircleOutlineRoundedIcon from '@material-ui/icons/AddCircleOutlineRounded';
@@ -10,8 +10,17 @@ import {
     //Card,
     Button,
   } from "react-bootstrap";
+import { AuthContext } from '../../../Context/AuthContext/AuthContex'
+import { logout } from '../../../Context/AuthContext/AuthAction'
 export default function DashPatient() {
+    const {dispatch} = useContext(AuthContext)
+
     const history =useHistory()
+    function Deconnexion(){
+       dispatch(logout())
+        history.push("/")
+      
+    }
     return (
         <div>
             <div className="Header__dash">
@@ -74,9 +83,9 @@ export default function DashPatient() {
                 </div>
                 <Button
                 className="btn1"
-                onClick={() => history.push("")}
+                onClick={Deconnexion}
               >
-                Home
+                Deconnexion
               </Button>
 
 

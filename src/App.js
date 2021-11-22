@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { useContext } from "react";
+import { BrowserRouter as Router, Switch, Route, Link,Redirect } from "react-router-dom";
 import Connexion from "./components/connexion/connexion";
 import Dashe from "./components/dashe";
 
@@ -16,48 +17,68 @@ import DashPatient from "./components/connexion/Patient/DashPatient"
 import AddNewTest from './components/connexion/Patient/AddNewTest'
 import Travile from './components/connexion/Patient/Travile'
 import { Stepper, StepLabel, Step } from "@material-ui/core";
+import Attestation from './components/connexion/Attestation'
+import { AuthContext } from "./Context/AuthContext/AuthContex";
 
 function App() {
+  const {user} = useContext(AuthContext)
+  
+ 
   return (
     <>
       <Router>
         <Switch>
-          <Route exact path="/">
+       
+          
+           {/* ======================= Routes Patient ======================= */}
+     
+           {user ? (<>
+           
+           <Redirect to="/"></Redirect>
+            <Route exact path="/">
             
-            <Dashe> </Dashe>
+            <DashPatient> </DashPatient>
           </Route>
-
-          <Route exact path="/Connexion">
+             
+          <Route path="/addNewTest">
             
-            <Connexion> </Connexion>
+            <AddNewTest> </AddNewTest>
           </Route>
-          <Route exact path="/information">
-            
-            <InformationUser> </InformationUser>
+          <Route path="/travel">
+             <Travile></Travile>
           </Route>
-          <Route exact path="/login">
-            
-            <Login> </Login>
+          <Route path="/Attestation">
+              <Attestation></Attestation>
           </Route>
-          <Route exact path="/loginPatient">
-            
-            <LoginPatient> </LoginPatient>
-          </Route>
-          <Route exact path="/resultTest">
+          <Route  path="/resultTest">
             
             <ResultTEst> </ResultTEst>
           </Route>
        
-          <Route exact path="/printAttes">
+          <Route  path="/printAttes">
             
             <PrintAttest> </PrintAttest>
           </Route>
-          <Route exact path="/SignUpPatient">
-            
+           </>):(<>
+            <Route exact path="/"><Dashe> </Dashe></Route>
+            <Route  path="/login">
+            <Login> </Login>
+          </Route>
+          <Route  path="/Connexion">
+            <Connexion> </Connexion>
+          </Route>
+          <Route  path="/information">
+            <InformationUser> </InformationUser>
+          </Route>
+        
+          <Route  path="/loginPatient">
+            <LoginPatient> </LoginPatient>
+          </Route>
+          <Route  path="/SignUpPatient">
             <AddPat> </AddPat>
           </Route>
-
-          <Route path="/addAdmin">
+           {/* =======================   Routes Testers ======================= */}
+      <Route path="/addAdmin">
             
             <AddAdmin> </AddAdmin>
           </Route>
@@ -74,17 +95,19 @@ function App() {
             
             <StatiqTest> </StatiqTest>
           </Route>
-          <Route path="/dashPatiente">
-            
-            <DashPatient> </DashPatient>
-          </Route>
-          <Route path="/addNewTest">
-            
-            <AddNewTest> </AddNewTest>
-          </Route>
-          <Route path="/travile">
-             <Travile></Travile>
-          </Route>
+
+{/* ======================= end  Routes Testers ======================= */}
+           </>)}
+          
+    {/* ======================= end  Routes Patient ======================= */}
+
+   
+
+      
+
+        
+      
+        
         </Switch>
       </Router>
     </>

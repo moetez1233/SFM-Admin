@@ -35,7 +35,7 @@ export default function StatiqTest() {
   return (
     <div>
       <NavSide> </NavSide>
-      <div className="patientpage">
+      <div >
       <Container>
   <Row>
     <Col xs={1} sm={1} md={1} lg={1} xxl={1}></Col>
@@ -44,7 +44,7 @@ export default function StatiqTest() {
     <div className='header'>
       <h5 className='title'>Statique inscription</h5>
     </div>
-    <Line data={data} options={options} />
+    <Line data={data} options={options} className="LigneChart" />
     </Col>
    
   </Row>

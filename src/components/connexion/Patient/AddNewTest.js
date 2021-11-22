@@ -18,7 +18,7 @@ export default function AddNewTest() {
         fatigue: false,
         Diarrhea:false,
         Unexplained_Bleeding:false,
-        Headache:false,
+      
         Headache:false,
      
         Abdobinal_Pain:false,
@@ -29,7 +29,15 @@ export default function AddNewTest() {
         setState({ ...state, [event.target.name]: event.target.checked });
       };
       function SaveAdd(){
+        let malad =[]
+        for(let x in state){
+          if(state[x]){
+            malad.push(x)
+          }
+        }
           console.log(state)
+          console.log(malad);
+          history.push("travel")
       }
     return (
         <div>
@@ -131,7 +139,7 @@ export default function AddNewTest() {
                        </Grid>
                      <Grid item>
                              <div class="form-check form-switch">
-                                   <input class="form-check-input" type="checkbox" checked={state.Unexplained_Bleeding} onChange={handleChange} name="Unexplained Bleeding"  />
+                                   <input class="form-check-input" type="checkbox" checked={state.Unexplained_Bleeding} onChange={handleChange} name="Unexplained_Bleeding"  />
                             </div>
                     </Grid>
                        <label class="form-check-label" for="flexSwitchCheckDefault"><h5>No</h5></label>
@@ -202,10 +210,10 @@ export default function AddNewTest() {
 </Container>
 <div className="footer__Test">
          <button class="btn__save" onClick={SaveAdd}>
-                        <div><AddCircleOutlineRoundedIcon></AddCircleOutlineRoundedIcon> <span>Save Test</span> </div>
+                        <div><AddCircleOutlineRoundedIcon></AddCircleOutlineRoundedIcon> <span>Save malad and go next page</span> </div>
          </button>
          <div>
-         <button class="btn__Retour" onClick={() => history.push("dashPatiente")}>
+         <button class="btn__Retour" onClick={() => history.push("/")} style={{width:"270px"}}>
                         <div><ArrowBackIosIcon></ArrowBackIosIcon> <span>Retour</span> </div>
          </button>
 

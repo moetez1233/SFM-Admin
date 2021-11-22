@@ -1,0 +1,7 @@
+{
+    "name": "Sfm",
+    "integrations": {
+      "capacitor": {}
+    },
+    "type": "react"
+  }

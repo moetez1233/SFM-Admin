@@ -3,7 +3,7 @@
 }
 
 img {
-    object-fit: cover;
+    object-fit: contain;
  
 }
 
@@ -42,3 +42,8 @@ ul {
     font-size: 16px;
     cursor: pointer;
 }
+/* ==================== Media ====================*/
+@media only screen and (max-width: 600px) {
+    .example {background: red;}
+  }
+/* ===================== end Media ===============*/

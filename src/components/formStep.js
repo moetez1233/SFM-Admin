@@ -9,9 +9,23 @@ import { Stepper, StepLabel, Step } from "@material-ui/core";
 import { multistepContext } from "../StepContext";
 import Container from "@material-ui/core/Container";
 import Grid from '@material-ui/core/Grid';
+import { makeStyles } from "@material-ui/core/styles";
+import { useStyles } from "@material-ui/pickers/views/Calendar/SlideTransition";
+import './formStep.css'
+const useStules =makeStyles({
+  root:{
+    width: "90%",  
+    marginLeft: "-40%",
+    '@media(maxWidth:406)':{
+      width:30,
+      color:"red"
+    }
+
+  }
+})
 export default function FormStep() {
   const { currentStep, finalData } = useContext(multistepContext);
-
+const classes =useStules()
   function showStep(step) {
     switch (step) {
       case 1:
@@ -26,21 +40,20 @@ export default function FormStep() {
   }
   return (
     <>
-      <Grid container spacing={1}>
-        <Grid item sm={4} xs={2} md={12}>
+  
          
 
-      <div className="centre-Stepper">
+     
         <Stepper
-          className="steppercla"
           style={{
-              width: "90%",
-              
-              marginLeft: "-5%",
-            }}
+            marginLeft:"-100px",
+          width:"50px"
+          }}
+         
             activeStep={currentStep - 1}
             orientation="horizontal"
             >
+              
         
           <Step>
             <StepLabel> </StepLabel>
@@ -57,10 +70,8 @@ export default function FormStep() {
             <StepLabel> </StepLabel>
           </Step>
         </Stepper>
-      </div>
-            </Grid>
-           
-          </Grid>
+   
+          
 
       {showStep(currentStep)}
     </>

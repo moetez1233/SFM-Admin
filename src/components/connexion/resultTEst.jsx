@@ -17,10 +17,10 @@ export default class ResultTEst  extends React.PureComponent {
 render() {
     return (
       <>
-        <div style={{ marginTop: "2%", marginLeft: "10%" }}>
+        <div className="Reslt" >
         <Container maxWidth="sm">
 
-          <Grid container spacing={3}>
+          <Grid container spacing={1}>
             <Grid item xs={10} className="Patienttest">
               <Grid container spacing={1}>
                 <Grid item xs={5}>

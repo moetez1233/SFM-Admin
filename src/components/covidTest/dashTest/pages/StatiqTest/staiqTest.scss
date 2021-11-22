@@ -1,12 +1,17 @@
-.gridSy{
-    background-color: red;
+.LigneChart{
+    
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
 }
-.gridSy2{
-    background-color: blue;
+
+@media screen and (max-width: 500px)
+{
+    .LigneChart{
+        width: 80%;
+        height: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
-.gridSy3{
-    background-color: green;
-}
-.gridSy4{
-    background-color: yellow;
-}
+

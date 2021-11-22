@@ -1,33 +1,67 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
-import Navbar from "../../components/Navbar";
 import NavSide from "../../components/NavSide";
-
-import "./addPatient.scss";
 import Grid from "@material-ui/core/Grid";
+import { useHistory } from "react-router-dom";
+import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
+import { Button } from "react-bootstrap";
+import Card from '@material-ui/core/Card';
+import  CardContent from "@material-ui/core/CardContent";
+import { makeStyles } from "@material-ui/core";
 import StepContext from "../../../../../StepContext";
 import FormStep from "../../../../formStep";
+const useStyles =makeStyles({
+  root:{
+    minWidth:275,
+    maxWidth:500,
+    marginTop:20,
+    marginLeft:"auto",
+    marginRight:"auto",
+  }
+})
+
 export default function AddPatient() {
-  const location = useLocation();
-  console.log(location.sidebar);
+  const history=useHistory()
+ 
+
+  const classes=useStyles()
+  const HomePage = () => {
+    history.push("/");
+  };
+
   return (
-    <div>
-      <NavSide> </NavSide>
-      <div className="Addpatientpage">
-        <Grid container spacing={3}>
-          <Grid item xs={3}>
-            <div> </div>
-          </Grid>
-          <Grid item xs={7}>
-            
-            <div>
-              <StepContext>
-                <FormStep> </FormStep>
-              </StepContext>
-            </div>
-          </Grid>
+    <>
+       <NavSide> </NavSide>
+       <div style={{marginTop:"70px"}}>
+       <Card className={classes.root}>
+      <CardContent>
+      <Grid container spacing={1}>
+        <Grid item xs={2}>
+          <div> </div>
         </Grid>
-      </div>
-    </div>
+        <Grid item xs={8}>
+          
+          <div className="ConnexBoxPatient">
+            <Button
+              style={{ marginTop: "15px" }}
+              variant="light"
+              onClick={HomePage}
+              >
+              
+              <ArrowBackIosIcon> </ArrowBackIosIcon>
+              <span style={{ fontSize: "1.5" }}> Home </span>
+            </Button>
+            <StepContext>
+              <FormStep> </FormStep>
+            </StepContext>
+          </div>
+        </Grid>
+      </Grid>
+      </CardContent>
+    </Card>
+
+       </div>
+        
+    
+   </>
   );
 }

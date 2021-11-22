@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { multistepContext } from "../StepContext";
-import { TextField, Button } from "@material-ui/core";
 import "./style.css";
 import QRCode from "react-qr-code";
 export default function Endstep() {
